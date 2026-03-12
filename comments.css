@@ -1,0 +1,120 @@
+.b-comment{
+  position:relative;
+  border-top:1px dashed #ddd;
+  border-radius:8px;
+  transition:box-shadow .2s ease;
+}
+.b-comment:hover{
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.05),
+    0 12px 34px rgba(0,0,0,0.16),
+    0 4px 10px rgba(0,0,0,0.08);
+}
+/* ВНУТРЕННИЙ БЛОК */
+.b-comment .inner{
+  background:#fff;
+  padding:22px 26px;
+  border-radius:8px;
+  border-left:4px solid transparent;
+}
+/* HEADER */
+.b-comment header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 0;
+  margin-bottom:12px;
+  border-top:2px solid transparent;
+  border-bottom:2px solid transparent;
+}
+/* АВАТАР */
+.b-comment header img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+}
+/* АВТОМАТИЧЕСКИЕ ЦВЕТА */
+.b-comment:nth-child(6n+1){--user-color:#4f8cff;}
+.b-comment:nth-child(6n+2){--user-color:#ff7a59;}
+.b-comment:nth-child(6n+3){--user-color:#38c172;}
+.b-comment:nth-child(6n+4){--user-color:#a66bff;}
+.b-comment:nth-child(6n+5){--user-color:#ffb020;}
+.b-comment:nth-child(6n+6){--user-color:#00bcd4;}
+.b-comment header img{
+  border:3px solid var(--user-color);
+}
+.b-comment header{
+  border-top-color:var(--user-color);
+  border-bottom-color:var(--user-color);
+}
+/* КОНТЕЙНЕР ИМЕНИ И ВРЕМЕНИ */
+.b-comment .name-date{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+/* БАБЛ НИКНЕЙМА */
+.b-comment .name{
+  font-size:16px;
+  font-weight:700;
+  color:#222;
+  text-decoration:none;
+  padding:5px 12px;
+  border-radius:16px;
+  background:rgba(0,0,0,0.04);
+  border:1px solid var(--user-color);
+}
+/* ВРЕМЯ (БЕЗ БАБЛА) */
+.b-comment .time{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  color:#666;
+  position:relative;
+  top:1px;
+}
+/* ИКОНКА ЧАСОВ */
+.b-comment .time::before{
+  content:"🕒";
+  font-size:11px;
+  opacity:.7;
+}
+/* ССЫЛКА ОТВЕТОВ */
+.b-comment .hash{
+  position:relative;
+  display:inline-block;
+  margin-left:6px;
+  color:transparent; /* скрывает # */
+  opacity:0;
+  transform:translateY(2px);
+  transition:opacity .15s ease, transform .15s ease;
+}
+/* ПОЯВЛЕНИЕ ПРИ HOVER */
+.b-comment:hover .hash{
+  opacity:1;
+  transform:translateY(0);
+}
+/* ТЕКСТ ССЫЛКИ */
+.b-comment .hash::before{
+  content:"↩";
+  color:#666;
+  font-size:12px;
+  white-space:nowrap;
+}
+/* ТЕКСТ КОММЕНТАРИЯ */
+.b-comment .body{
+  margin-top:12px;
+  font-size:14px;
+  line-height:1.65;
+  color:#333;
+}
+/* КНОПКИ ДЕЙСТВИЙ */
+.b-comment aside.buttons{
+  position:absolute;
+  top:50px;
+  right:10px;
+  z-index:5;
+}
