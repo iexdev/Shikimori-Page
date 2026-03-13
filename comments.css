@@ -118,3 +118,63 @@
   right:10px;
   z-index:5;
 }
+/* убираем стандартный текст */
+.b-replies::before{
+  content:none !important;
+}
+/* кнопка reply */
+.b-replies{
+  position:absolute;
+  right:28px;
+  bottom:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:28px;
+  padding:0 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 3px 8px rgba(0,0,0,.15);
+  transition:all .2s ease;
+}
+/* ссылка */
+.b-replies a{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:600;
+  color:#222; /* тёмный текст */
+}
+/* скрываем старые элементы */
+.b-replies s{
+  display:none;
+}
+.b-replies span{
+  font-size:12px;
+}
+/* иконка */
+.b-replies a::before{
+  content:"↩";
+  font-size:13px;
+  opacity:.8;
+}
+/* текст */
+.b-replies a::after{
+  content: attr(data-user_nickname);
+  font-size:12px;
+}
+/* hover */
+.b-replies:hover{
+  transform:translateY(-2px);
+  background:#ffffff;
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
+/* клик */
+.b-replies:active{
+  transform:translateY(0);
+}
